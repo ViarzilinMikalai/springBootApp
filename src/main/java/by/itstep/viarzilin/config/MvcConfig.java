@@ -12,10 +12,9 @@ public class MvcConfig implements WebMvcConfigurer {
     @Bean
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
-    }
+    };
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry){
+    public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
     }
 }

@@ -40,29 +40,32 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(
             @RequestParam("passwordConfirm") String passwordConfirm,
-            @RequestParam("g-recaptcha-response") String captchaResponce,
+//            @RequestParam("g-recaptcha-response") String captchaResponce,
             @Valid User user,
             BindingResult bindingResult,
             Model model
     ){
-        String url = String.format(CAPTCHA_URL, secret, captchaResponce);
-        CaptchaResponseDto captchaResponseDto = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class);
-
-        if (!captchaResponseDto.success){
-            model.addAttribute("captchaError", "Fill Captcha");
-        }
+//        String url = String.format(CAPTCHA_URL, secret, captchaResponce);
+//        System.out.println(url);
+//        CaptchaResponseDto captchaResponseDto = restTemplate.postForObject(url, Collections.emptyList(), CaptchaResponseDto.class);
+//        System.out.println(captchaResponseDto.toString());
+//        if (!captchaResponseDto.success){
+//            model.addAttribute("captchaError", "Fill Captcha");
+//        }
 
         boolean isConfirmEmpty = StringUtils.isEmpty(passwordConfirm);
 
         if (isConfirmEmpty) {
             model.addAttribute("passwordConfirmError","Password confirmation can't be empty");
+
         }
 
         if (user.getPassword() != null && !user.getPassword().equals(passwordConfirm)){
             model.addAttribute("passwordError", "Passwords are differents!");
+
         }
 
-        if (isConfirmEmpty || bindingResult.hasErrors() || !captchaResponseDto.success){
+        if (isConfirmEmpty || bindingResult.hasErrors() /*|| !captchaResponseDto.success*/){
             Map<String, String> errors = ControllerUtils.getErrors(bindingResult);
             model.mergeAttributes(errors);
 

@@ -43,7 +43,7 @@ public class UserService implements UserDetailsService {
 
     public boolean addUser(User user){
 
-         User userFromDb = new User();
+         User userFromDb = userRepo.findByUsername(user.getUsername());
 
          if (userFromDb != null){
 

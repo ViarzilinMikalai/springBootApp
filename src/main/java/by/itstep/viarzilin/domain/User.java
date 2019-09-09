@@ -36,19 +36,19 @@ public class User extends AbstractEntity implements UserDetails {
 
     private String activationCode;
 
-    @NotBlank
-    @Length(max=50)
-    private String firstname;
-
-    @NotBlank
-    @Length(max=50)
-    private String lastname;
-
-    @NotBlank
-    @Length(max=50)
-    private String surname;
-
-    private LocalDate birthDate;
+//    @NotBlank
+//    @Length(max=50)
+//    private String firstname;
+//
+//    @NotBlank
+//    @Length(max=50)
+//    private String lastname;
+//
+//    @NotBlank
+//    @Length(max=50)
+//    private String surname;
+//
+//    private LocalDate birthDate;
 
     @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
     @CollectionTable(name="user_role", joinColumns = @JoinColumn(name="user_id"))

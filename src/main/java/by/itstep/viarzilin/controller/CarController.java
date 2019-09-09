@@ -23,6 +23,7 @@ public class CarController {
     @Autowired
     CarService carService;
 
+
     @GetMapping
     public String listOfCars(
             Model model,

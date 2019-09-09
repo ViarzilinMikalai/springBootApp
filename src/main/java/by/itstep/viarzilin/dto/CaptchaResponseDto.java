@@ -7,12 +7,12 @@ import lombok.Value;
 
 import java.util.Set;
 
+
 @Value
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CaptchaResponseDto {
-
     public boolean success;
-
     @JsonAlias("error-codes")
     public Set<String> errorCodes;
+
 }
