@@ -3,16 +3,16 @@ package by.itstep.viarzilin.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.Value;
 
 import java.util.Set;
-
-
-@Value
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CaptchaResponseDto {
-    public boolean success;
+    private boolean success;
     @JsonAlias("error-codes")
-    public Set<String> errorCodes;
-
+    private Set<String> errorCodes;
 }

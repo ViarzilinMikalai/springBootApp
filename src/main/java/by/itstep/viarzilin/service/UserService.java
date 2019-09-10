@@ -46,7 +46,6 @@ public class UserService implements UserDetailsService {
          User userFromDb = userRepo.findByUsername(user.getUsername());
 
          if (userFromDb != null){
-
              return false;
 
          } else {
@@ -71,7 +70,7 @@ public class UserService implements UserDetailsService {
 
             String message = String.format(
                     "Hello, %s! \n" +
-                            "Welcome to Sweater. Please, visit next link: http://localhost:8080/activate/%s",
+                            "Welcome to Cars registration Application. Please, visit next link: http://localhost:8080/activate/%s",
                     user.getUsername(),
                     user.getActivationCode()
             );
