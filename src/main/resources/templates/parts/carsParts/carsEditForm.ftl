@@ -45,9 +45,7 @@
                 </div>
             </#if>
         </div>
-
-    <#--    <input type="text" name="manufactureYear" value="<#if oneCar??>${oneCar.manufactureYear}</#if>" placeholder="Enter the year">-->
-    <#--    <br><#if manufactureYearError??>${manufactureYearError}</#if><br>-->
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
         <div class="form-group mt-2">
             <input class="btn btn-primary" type="submit" value="Submit"/>
         </div>

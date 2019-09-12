@@ -96,4 +96,16 @@ public class RegistrationController {
 
         return "login";
     }
+
+
+    @GetMapping("/main")
+    public String main(){
+        return "main";
+    }
+
+
+    @GetMapping("/")
+    public String mainPage(){
+        return "redirect:main";
+    }
 }

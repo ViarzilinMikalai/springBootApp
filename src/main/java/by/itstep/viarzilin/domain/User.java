@@ -2,6 +2,7 @@ package by.itstep.viarzilin.domain;
 
 
 import by.itstep.viarzilin.domain.AbstractClasses.AbstractEntity;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -16,11 +17,13 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
-@Table(name = "users")
+
 @Getter
 @Setter
+@Entity
+@Table(name = "users")
 public class User extends AbstractEntity implements UserDetails {
+
 
     @NotBlank(message = "Username can't be empty")
     private String username;
@@ -35,20 +38,6 @@ public class User extends AbstractEntity implements UserDetails {
     private String email;
 
     private String activationCode;
-
-//    @NotBlank
-//    @Length(max=50)
-//    private String firstname;
-//
-//    @NotBlank
-//    @Length(max=50)
-//    private String lastname;
-//
-//    @NotBlank
-//    @Length(max=50)
-//    private String surname;
-//
-//    private LocalDate birthDate;
 
     @ElementCollection(targetClass = Roles.class, fetch = FetchType.EAGER)
     @CollectionTable(name="user_role", joinColumns = @JoinColumn(name="user_id"))
@@ -85,17 +74,17 @@ public class User extends AbstractEntity implements UserDetails {
         return isActive();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        if (!super.equals(o)) return false;
-        User user = (User) o;
-        return Objects.equals(getId(), user.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof User)) return false;
+//        if (!super.equals(o)) return false;
+//        User user = (User) o;
+//        return Objects.equals(userId(), user.userId());
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(userId());
+//    }
 }

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,7 +24,7 @@ public class CarController {
     @Autowired
     CarService carService;
 
-
+//    @PreAuthorize("hasAuthority('USER')")
     @GetMapping
     public String listOfCars(
             Model model,
@@ -61,7 +62,7 @@ public class CarController {
         return "cars";
     }
 
-
+//    @PreAuthorize("hasAuthority('USER')")
     @PostMapping
     public String addOrUpdateCar(
             @Valid Car car,
