@@ -73,18 +73,4 @@ public class User extends AbstractEntity implements UserDetails {
     public boolean isEnabled() {
         return isActive();
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof User)) return false;
-//        if (!super.equals(o)) return false;
-//        User user = (User) o;
-//        return Objects.equals(userId(), user.userId());
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(userId());
-//    }
 }
